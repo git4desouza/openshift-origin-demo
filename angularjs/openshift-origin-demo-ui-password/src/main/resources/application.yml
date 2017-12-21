@@ -5,6 +5,10 @@ zuul:
     oauth:
       path: /oauth/**
       url: http://localhost:8081/spring-security-oauth-server/oauth
+    resource: 
+      path: /resource/** 
+      url: http://localhost:18082/spring-security-oauth-resource
+      
   Servlet30WrapperFilter:
     pre:
       disable:true

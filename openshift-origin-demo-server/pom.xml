@@ -4,7 +4,7 @@
 	<artifactId>openshift-origin-demo-oauth-server</artifactId>
 
 	<name>openshift-origin-demo-oauth-server</name>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<parent>
 		<groupId>org.kumaran</groupId>
@@ -125,6 +125,7 @@
 					</nonFilteredFileExtensions>
 				</configuration>
 			</plugin>
+			
 		</plugins>
 	</build>
 
@@ -158,16 +159,17 @@
 							</systemPropertyVariables>
 						</configuration>
 					</plugin>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+					</plugin>
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
 	</profiles>
 
-	<properties>
-		<!-- The main class to start by executing java -jar -->
-		<start-class>org.kumaran.config.AuthorizationServerApplication</start-class>
-	</properties>
-	<!-- <profiles> <profile> <id>dev</id> <build> <resources> <resource> <directory>src/main/resources</directory> 
-		<filtering>true</filtering> <excludes> <exclude>*.jks</exclude> </excludes> 
-		</resource> </resources> </build> </profile> </profiles> -->
 </project>

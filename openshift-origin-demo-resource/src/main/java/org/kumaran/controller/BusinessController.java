@@ -24,6 +24,7 @@ public class BusinessController {
 	//@PreAuthorize("#oauth2.hasScope('sampleClientId') and hasRole('USER')")
 	@RequestMapping(value="/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Order>> getAllOrders(){
+		System.out.println("Called==================================>");
 		List<Order> list = businessService.getAllOrders();
 		if(list.isEmpty()) {
 		return new ResponseEntity<List<Order>>(HttpStatus.NO_CONTENT);
@@ -33,6 +34,7 @@ public class BusinessController {
 	//@PreAuthorize("#oauth2.hasScope('sampleClientId') and hasRole('USER')")
 	@RequestMapping(value="/products", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Product>> getAllProducts(){
+		System.out.println("Called===============================11111111111===>");
 		List<Product> list = businessService.getAllProducts();
 		if(list.isEmpty()) {
 		return new ResponseEntity<List<Product>>(HttpStatus.NO_CONTENT);

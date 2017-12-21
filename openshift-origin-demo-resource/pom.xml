@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>openshift-origin-demo-resource</artifactId>
 	<name>openshift-origin-demo-resource</name>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<parent>
 		<groupId>org.kumaran</groupId>
@@ -127,6 +127,14 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+            </plugin>
 		</plugins>
 	</build>
 

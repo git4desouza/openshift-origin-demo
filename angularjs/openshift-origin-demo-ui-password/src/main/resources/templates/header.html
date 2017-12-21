@@ -24,12 +24,15 @@ var app = angular.module('myApp', ["ngResource","ngRoute","ngCookies","angular-j
 app.controller('mainCtrl', function($scope,$resource,$http,$httpParamSerializer,$cookies,jwtHelper,$timeout) {
 
 
+  
+
+   
+
     $scope.getOrders = function(){
-	    $http.get('http://localhost:18082/spring-security-oauth-resource/orders')
+	    $http.get('/resource/orders')
 	    .success(function (data, status, headers, config) {
-	    	//$scope.orders = data;
-	   /*  	console.log($scope.orders);
-	    	alert(data); */
+	    	/* $scope.products = data;
+	    	console.log($scope.products); */
 	    	$scope.rows = data;
 	    	$scope.cols = Object.keys($scope.rows[0]);
 	    })
@@ -40,10 +43,11 @@ app.controller('mainCtrl', function($scope,$resource,$http,$httpParamSerializer,
 	            "<br />config: " + jsonFilter(config);
 	    });
     }
+    
 
 
     $scope.getProdcts = function(){
-	    $http.get('http://localhost:18082/spring-security-oauth-resource/products')
+	    $http.get('/resource/products')
 	    .success(function (data, status, headers, config) {
 	    	/* $scope.products = data;
 	    	console.log($scope.products); */
@@ -60,7 +64,7 @@ app.controller('mainCtrl', function($scope,$resource,$http,$httpParamSerializer,
     
     
     
-    $scope.loginData = {grant_type:"password", username: "", password: "", client_id: "fooClientIdPassword"};
+    $scope.loginData = {grant_type:"password", username: "", password: "", client_id: "fooClientIdPassword",client_secret : "secret"};
     $scope.refreshData = {grant_type:"refresh_token"};
         
     var isLoginPage = window.location.href.indexOf("login") != -1;
